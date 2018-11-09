@@ -1,1 +1,1 @@
-# SC-project
+# sc-project
