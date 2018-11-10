@@ -17,13 +17,6 @@ const styles = theme => ({
 });
 
 class Index extends React.Component {
-	state = {
-		show: false
-	}
-
-	showMyComponent = () => {
-		this.setState({ show: true })
-	}
 
 	render() {
 		const { classes } = this.props;
@@ -31,10 +24,9 @@ class Index extends React.Component {
 		return (
 			<div className={classes.root}>
 				<ButtonAppBar />
-				<Button color="secondary" onClick={this.showMyComponent}>1</Button>
 				<Stepper />
-				<Stepper2 style={{ display: 'none' }} />
-				<Stepper3 style={this.state.show ? {} : { display: 'none' }} />
+				{/* <Stepper2 style={{ display: 'none' }} /> */}
+				{/* <Stepper3 style={this.state.show ? {} : { display: 'none' }} /> */}
 				<Footer />
 			</div>
 		);
