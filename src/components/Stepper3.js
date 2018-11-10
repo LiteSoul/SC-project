@@ -6,10 +6,12 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Nested from './Nested'
 
 const styles = theme => ({
 	root: {
 		width: '90%',
+		paddingTop: '2em'
 	},
 	backButton: {
 		marginRight: theme.spacing.unit,
@@ -27,7 +29,7 @@ function getSteps() {
 function getStepContent(stepIndex) {
 	switch (stepIndex) {
 		case 0:
-			return 'Select campaign settings...';
+			return <Nested></Nested>
 		case 1:
 			return 'What is an ad group anyways?';
 		case 2:
@@ -84,7 +86,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
 						</div>
 					) : (
 							<div>
-								<Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+								<div className={classes.instructions}>{getStepContent(activeStep)}</div>
 								<div>
 									<Button
 										disabled={activeStep === 0}

@@ -10,9 +10,9 @@ import Button from '@material-ui/core/Button';
 import withRoot from './withRoot';
 
 const styles = theme => ({
-	root: {
+	stepper: {
 		// textAlign: 'center',
-		// paddingTop: theme.spacing.unit * 2,
+		paddingTop: theme.spacing.unit * 2,
 	}
 });
 
@@ -22,11 +22,11 @@ class Index extends React.Component {
 		const { classes } = this.props;
 
 		return (
-			<div className={classes.root}>
+			<div>
 				<ButtonAppBar />
-				<Stepper />
+				{/* <Stepper /> */}
 				{/* <Stepper2 style={{ display: 'none' }} /> */}
-				{/* <Stepper3 style={this.state.show ? {} : { display: 'none' }} /> */}
+				<Stepper3 />
 				<Footer />
 			</div>
 		);
