@@ -36,6 +36,7 @@ export default () => {
 					<input
 						type="text"
 						placeholder="A thing to do..."
+						maxLength="22"
 						id='todoInput'
 						onChange={onInputChange}
 						onKeyPress={onInputKeyPress}
