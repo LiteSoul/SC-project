@@ -2,7 +2,8 @@ import React, { Fragment, useState } from 'react'
 import ToDoItem from './ToDoItem'
 
 export default () => {
-	const [inputValue, setInputValue] = useState()
+	const [inputValue, setInputValue] = useState('')
+	const [itemsList, setItemsList] = useState([1, 2])
 
 	const onInputChange = (e) => {
 		setInputValue(e.target.value)
@@ -10,14 +11,20 @@ export default () => {
 	}
 
 	const onInputKeyPress = (e) => {
-		if (e.keyCode === 13 || e.which === 13) console.log(inputValue)
+		if (e.keyCode === 13 || e.which === 13) {
+			setItemsList([...itemsList, e.target.value])
+			console.log(inputValue)
+			e.target.value = ''
+		}
 	}
 
 	const onButtonClick = () => {
+		const e = document.getElementById('todoInput')
+		setItemsList([...itemsList, e.value])
 		console.log(inputValue)
-	}
+		e.value = ''
 
-	const item = <ToDoItem inputValue={inputValue} />
+	}
 
 	return (
 		<Fragment>
@@ -28,7 +35,8 @@ export default () => {
 				<div className="section">
 					<input
 						type="text"
-						placeholder="Brush your teeth"
+						placeholder="A thing to do..."
+						id='todoInput'
 						onChange={onInputChange}
 						onKeyPress={onInputKeyPress}
 					/>
@@ -41,8 +49,7 @@ export default () => {
 				<div className="section">
 					<h3>ToDo List:</h3>
 				</div>
-				{/* <ToDoItem inputValue={inputValue} /> */}
-				{item}
+				<ToDoItem items={itemsList} />
 			</div >
 		</Fragment>
 	)
